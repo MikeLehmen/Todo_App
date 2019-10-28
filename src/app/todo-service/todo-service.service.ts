@@ -5,26 +5,31 @@ import { TodoItem, SEVERITY } from '../todo-item/todo-item.model';
 @Injectable()
 export class TodoListService {
     private list: TodoList;
+    private dateStrings : string[];
 
     constructor() {
         // pre-populate with some stub items
         this.list = new TodoList();
 
-        var itemObj = { task: 'Feed the dog', dueDate: new Date('2019-10-28T12:00:00'), severity: SEVERITY.URGENT };
+        var itemObj = { task: 'Feed the dog', dueDate: SEVERITY.URGENT };
         this.list.pushItem(new TodoItem(itemObj));
 
         itemObj.task = 'Clean the house'
-        itemObj.dueDate = new Date('2019-12-14T06:15:00');
-        itemObj.severity = SEVERITY.WEEKS;
+        itemObj.dueDate = SEVERITY.WEEKS;
         this.list.pushItem(new TodoItem(itemObj));
 
         itemObj.task = 'Take out the trash'
-        itemObj.dueDate = new Date('2019-10-31T19:37:00');
-        itemObj.severity = SEVERITY.DAYS;
+        itemObj.dueDate = SEVERITY.DAYS;
         this.list.pushItem(new TodoItem(itemObj));
+
+        this.dateStrings = [ "URGENT", "DAYS", "WEEKS" ];
     }
 
     getList(): TodoList {
         return this.list;
+    }
+
+    getDateString(item: TodoItem) {
+        return this.dateStrings[item.dueDate];
     }
 }

@@ -1,14 +1,11 @@
 <div>
     <div>
         <p>Task: {{ item.task }}</p>
-        <p>{{item.dueDate.toString()}}</p>
-        <p>Severity: {{ item.severity }}</p>
+        <p>Due Date: {{ dateToString() }}</p>
     </div>
     <div>
-        <button>Urgent</button>
-        <button>Days</button>
-        <button>Weeks</button>
+        <button [ngClass]="{ red: isUrgent() }"  (click)="setUrgent()">Urgent</button>
+        <button [ngClass]="{ yellow: isDays() }"  (click)="setDays()">Days</button>
+        <button [ngClass]="{ green: isWeeks() }"  (click)="setWeeks()">Weeks</button>
     </div>
 </div>
-
-<!-- <p>Due Date:  {{ item.dueDate.getHours() }}:{{ item.dueDate.getMinutes() }} {{ item.dueDate.getMonth() }} {{ item.dueDate.getDay() }}</p> -->

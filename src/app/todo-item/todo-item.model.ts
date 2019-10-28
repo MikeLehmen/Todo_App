@@ -6,12 +6,10 @@ export enum SEVERITY {
 
 export class TodoItem {
     task: string;
-    dueDate: Date;
-    severity: SEVERITY;
+    dueDate: SEVERITY;
 
     constructor(obj: any) {
         this.task       = obj && obj.task       ||  'task unknown';
-        this.dueDate    = obj && obj.dueDate    ||  new Date();
-        this.severity   = obj && obj.severity   ||  SEVERITY.URGENT;
+        this.dueDate    = obj && obj.dueDate    ||  SEVERITY.URGENT;
     }
 }
