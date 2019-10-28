@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoItem, SEVERITY } from './todo-item.model';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-todo-item',
@@ -7,12 +8,10 @@ import { TodoItem, SEVERITY } from './todo-item.model';
   styleUrls: ['./todo-item.component.css']
 })
 export class TodoItemComponent implements OnInit {
-  item: TodoItem;
+  @Input() item: TodoItem;
 
-  // will need service as well
   constructor() {
-    var itemObj = { task: 'Feed the dog', dueDate: new Date('2019-10-31T12:00:00'), severity: SEVERITY.DAYS };
-    this.item = new TodoItem(itemObj);
+
    }
 
   ngOnInit() {

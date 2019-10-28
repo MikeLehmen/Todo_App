@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     PageNotFoundComponent,
-    TodoItemComponent
+    TodoItemComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,
