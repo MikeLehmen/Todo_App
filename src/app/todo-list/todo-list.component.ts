@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoList } from './todo-list.model'
+import { TodoListService } from '../todo-service/todo-service.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -10,9 +11,9 @@ export class TodoListComponent implements OnInit {
   itemList: TodoList;
 
   // will pull list reference from list service
-  constructor() {
-    this.itemList = new TodoList();
-   }
+  constructor(todoService: TodoListService) {
+    this.itemList = todoService.getList();
+  }
 
   ngOnInit() {
   }

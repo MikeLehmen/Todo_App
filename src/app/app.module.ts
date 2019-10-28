@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoListService } from './todo-service/todo-service.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { TodoListComponent } from './todo-list/todo-list.component';
   //  DashboardComponent,
   //  PageNotFoundComponent
   //],
-  providers: [],
+  providers: [
+    TodoListService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
