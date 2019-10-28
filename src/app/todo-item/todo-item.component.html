@@ -1,0 +1,14 @@
+<div>
+    <div>
+        <p>Task: {{ item.task }}</p>
+        <p>{{item.dueDate.toString()}}</p>
+        <p>Severity: {{ item.severity }}</p>
+    </div>
+    <div>
+        <button style="display:inline">Urgent</button>
+        <button style="display:inline">Days</button>
+        <button style="display:inline">Weeks</button>
+    </div>
+</div>
+
+<!-- <p>Due Date:  {{ item.dueDate.getHours() }}:{{ item.dueDate.getMinutes() }} {{ item.dueDate.getMonth() }} {{ item.dueDate.getDay() }}</p> -->
