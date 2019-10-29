@@ -25,30 +25,33 @@ export class TodoItemComponent implements OnInit {
 
   // for button colors
   private isUrgent(): boolean {
-    if (this.item.dueDate - SEVERITY.URGENT == 0) return true;
+    if (this.item.dueDate == SEVERITY.URGENT) return true;
     else return false;
   }
 
   private isDays(): boolean {
-    if (this.item.dueDate - SEVERITY.DAYS == 0) return true;
+    if (this.item.dueDate == SEVERITY.DAYS) return true;
     else return false;
   }
 
   private isWeeks(): boolean {
-    if (this.item.dueDate - SEVERITY.WEEKS == 0) return true;
+    if (this.item.dueDate == SEVERITY.WEEKS) return true;
     else return false;
   }
 
   private setUrgent(): void {
-    this.item.dueDate = SEVERITY.URGENT;
+    //this.item.dueDate = SEVERITY.URGENT;
+    this.listService.setUrgent(this.item);
   }
 
   private setDays(): void {
-    this.item.dueDate = SEVERITY.DAYS;
+    //this.item.dueDate = SEVERITY.DAYS;
+    this.listService.setDays(this.item);
   }
 
   private setWeeks(): void {
-    this.item.dueDate = SEVERITY.WEEKS;
+    //this.item.dueDate = SEVERITY.WEEKS;
+    this.listService.setWeeks(this.item);
   }
 
 }

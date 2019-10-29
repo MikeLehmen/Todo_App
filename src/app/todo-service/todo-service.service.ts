@@ -23,12 +23,36 @@ export class TodoListService {
         this.list.pushItem(new TodoItem(itemObj));
 
         this.dateStrings = [ "URGENT", "DAYS", "WEEKS" ];
+
+        this.addNewItem("Sort out life", SEVERITY.URGENT);
     }
 
+    // add new TodoItem
+    addNewItem(_task: string, _due: SEVERITY): void {
+        var newItem = new TodoItem( {task : _task, dueDate : _due } );
+        this.list.pushItem(newItem);
+    }
+
+    // update due date properties
+    setUrgent(item: TodoItem): void {
+        item.dueDate = SEVERITY.URGENT;
+    }
+    
+    setDays(item: TodoItem): void {
+        item.dueDate = SEVERITY.DAYS;
+    }
+    
+    setWeeks(item: TodoItem): void {
+        item.dueDate = SEVERITY.WEEKS;
+    }
+
+    // accessor
     getList(): TodoList {
         return this.list;
     }
 
+    // return enum string (I guess there's a toString method, but I've been in c++ land 
+    // for a while so this was my go to before I even thought to look at JS enum methods...)
     getDateString(item: TodoItem) {
         return this.dateStrings[item.dueDate];
     }
