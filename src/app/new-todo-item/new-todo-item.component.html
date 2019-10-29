@@ -1,3 +1,22 @@
 <div>
-    <p>STUB: New Todo Item Form Goes Here</p>
+    <form #f="ngForm" 
+        (ngSubmit)="onSubmit(f.value)">
+    
+        <div>
+            <label for="taskInput">Enter New Task:</label>
+            <input type="text"
+                    id="taskInput"
+                    placeholder="New Task"
+                    name="task" ngModel>
+
+            
+            <input type="radio" name="due" value="0" ngModel>URGENT
+            <input type="radio" name="due" value="1" ngModel>DAYS
+            <input type="radio" name="due" value="2" ngModel>WEEKS <br>
+                    
+                    
+            <button type="submit">Submit</button>
+        </div>
+    
+    </form>
 </div>

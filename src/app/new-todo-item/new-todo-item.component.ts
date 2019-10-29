@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoListService } from '../todo-service/todo-service.service';
+import { SEVERITY } from '../todo-item/todo-item.model';
 
 @Component({
   selector: 'app-new-todo-item',
@@ -7,10 +8,15 @@ import { TodoListService } from '../todo-service/todo-service.service';
   styleUrls: ['./new-todo-item.component.css']
 })
 export class NewTodoItemComponent implements OnInit {
-  
+
 
   constructor(private listService: TodoListService) {
 
+  }
+
+  onSubmit(formObj: any) {
+    console.log(formObj);
+    this.listService.addNewItem(formObj.task, formObj.due);
   }
 
   ngOnInit() {
