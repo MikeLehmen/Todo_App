@@ -8,4 +8,7 @@
         <button [ngClass]="{ yellow: isDays() }"  (click)="setDays()">Days</button>
         <button [ngClass]="{ green: isWeeks() }"  (click)="setWeeks()">Weeks</button>
     </div>
+    <div> 
+        <button (click)="remove()">Remove Task</button>
+    </div>
 </div>

@@ -24,7 +24,12 @@ export class TodoListService {
 
         this.dateStrings = [ "URGENT", "DAYS", "WEEKS" ];
 
+        // test new item method, should switch above item creation to use this
         this.addNewItem("Sort out life", SEVERITY.URGENT);
+    }
+
+    removeItem(index: number) : void {
+        this.list.items.splice(index, 1);
     }
 
     // add new TodoItem

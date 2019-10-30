@@ -8,10 +8,15 @@ import { SEVERITY } from '../todo-item/todo-item.model';
   styleUrls: ['./new-todo-item.component.css']
 })
 export class NewTodoItemComponent implements OnInit {
-
-
+  // for default select prototyping
+  times: SEVERITY[];
+  strings: string[];
+  default: number;
+  
   constructor(private listService: TodoListService) {
-
+    this.times = [SEVERITY.URGENT,SEVERITY.DAYS,SEVERITY.WEEKS];
+    this.strings = ["URGENT", "DAYS", "WEEKS"];
+    this.default = 0;
   }
 
   onSubmit(formObj: any) {

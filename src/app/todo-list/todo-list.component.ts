@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { TodoList } from './todo-list.model'
 import { TodoListService } from '../todo-service/todo-service.service';
 
@@ -7,7 +7,7 @@ import { TodoListService } from '../todo-service/todo-service.service';
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css']
 })
-export class TodoListComponent implements OnInit {
+export class TodoListComponent implements OnInit, OnChanges {
   itemList: TodoList;
 
   // will pull list reference from list service
@@ -16,6 +16,10 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+
   }
 
 }

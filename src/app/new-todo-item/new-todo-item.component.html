@@ -9,13 +9,11 @@
                     placeholder="New Task"
                     name="task" ngModel>
 
-            
-            <input type="radio" name="due" value="0" ngModel>URGENT
-            <input type="radio" name="due" value="1" ngModel>DAYS
-            <input type="radio" name="due" value="2" ngModel>WEEKS <br>
-                    
-                    
-            <button type="submit">Submit</button>
+            <select name="due" ngModel="strings">
+                <option *ngFor="let s of times;let i=index" [value]="i">{{strings[i]}}</option>
+            </select>
+
+            <button type="submit">Add Task</button>
         </div>
     
     </form>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { TodoItem, SEVERITY } from './todo-item.model';
 import { Input } from '@angular/core';
 import { TodoListService } from '../todo-service/todo-service.service';
@@ -8,19 +8,31 @@ import { TodoListService } from '../todo-service/todo-service.service';
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.css']
 })
-export class TodoItemComponent implements OnInit {
+export class TodoItemComponent implements OnInit, OnChanges {
   @Input() item: TodoItem;
+  @Input() index: number;
 
-  // I don't like this dependency, fix it once everything works
   constructor(private listService: TodoListService) {
+    
+  }
 
-   }
-
+  // use lifecycle hooks to grab and update index from ngFor, makes things easy
   ngOnInit() {
+    this.item.currentIndex = this.index;
+  }
+
+  ngOnChanges() {
+    this.item.currentIndex = this.index;
+    console.log(this.item.task + " --> " + this.item.currentIndex);
   }
 
   private dateToString(): string {
     return this.listService.getDateString(this.item);
+  }
+
+  // remove button event
+  remove() {
+    this.listService.removeItem(this.index);
   }
 
   // for button colors
@@ -39,18 +51,16 @@ export class TodoItemComponent implements OnInit {
     else return false;
   }
 
+  // update dueDues
   private setUrgent(): void {
-    //this.item.dueDate = SEVERITY.URGENT;
     this.listService.setUrgent(this.item);
   }
 
   private setDays(): void {
-    //this.item.dueDate = SEVERITY.DAYS;
     this.listService.setDays(this.item);
   }
 
   private setWeeks(): void {
-    //this.item.dueDate = SEVERITY.WEEKS;
     this.listService.setWeeks(this.item);
   }
 
