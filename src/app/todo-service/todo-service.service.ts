@@ -10,22 +10,13 @@ export class TodoListService {
     constructor() {
         // pre-populate with some stub items
         this.list = new TodoList();
-
-        var itemObj = { task: 'Feed the dog', dueDate: SEVERITY.URGENT };
-        this.list.pushItem(new TodoItem(itemObj));
-
-        itemObj.task = 'Clean the house'
-        itemObj.dueDate = SEVERITY.WEEKS;
-        this.list.pushItem(new TodoItem(itemObj));
-
-        itemObj.task = 'Take out the trash'
-        itemObj.dueDate = SEVERITY.DAYS;
-        this.list.pushItem(new TodoItem(itemObj));
-
-        this.dateStrings = [ "URGENT", "DAYS", "WEEKS" ];
-
-        // test new item method, should switch above item creation to use this
-        this.addNewItem("Sort out life", SEVERITY.URGENT);
+        
+        this.addNewItem("Feed the dog", SEVERITY.URGENT);
+        this.addNewItem("Clean the house", SEVERITY.WEEKS);
+        this.addNewItem("Take out the trash", SEVERITY.DAYS);
+        this.addNewItem("Sort out life", SEVERITY.WEEKS);
+        
+        this.dateStrings = [ "Urgent", "Days", "Weeks" ];
     }
 
     removeItem(index: number) : void {
@@ -33,8 +24,8 @@ export class TodoListService {
     }
 
     // add new TodoItem
-    addNewItem(_task: string, _due: SEVERITY): void {
-        var newItem = new TodoItem( {task : _task, dueDate : _due } );
+    addNewItem(newTask: string, newDue: SEVERITY): void {
+        var newItem = new TodoItem( {task : newTask, dueDate : newDue } );
         this.list.pushItem(newItem);
     }
 
@@ -57,7 +48,7 @@ export class TodoListService {
     }
 
     // return enum string (I guess there's a toString method, but I've been in c++ land 
-    // for a while so this was my go to before I even thought to look at JS enum methods...)
+    // for a while so this was where my head went before I thought to look at JS enum methods...)
     getDateString(item: TodoItem) {
         return this.dateStrings[item.dueDate];
     }

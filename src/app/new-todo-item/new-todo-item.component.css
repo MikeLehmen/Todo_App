@@ -1,0 +1,17 @@
+.bottomMargin {
+    margin-bottom: 15px;
+}
+
+.leftMargin {
+    margin-left: 20px;
+}
+
+.padLabelRight {
+    padding-right: 5px;
+}
+
+.lineLeftAlign {
+    text-align: left;
+    margin-left: 0;
+    width: 550px
+}

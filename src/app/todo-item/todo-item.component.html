@@ -1,14 +1,22 @@
 <div>
     <div>
-        <p>Task: {{ item.task }}</p>
-        <p>Due Date: {{ dateToString() }}</p>
+        <h3>Item {{ item.currentIndex + 1}}</h3>
+        <p><u>Task</u>: {{ item.task }}</p>
+        <p><u>Due Date</u>: {{ dateToString() }}</p>
     </div>
     <div>
-        <button [ngClass]="{ red: isUrgent() }"  (click)="setUrgent()">Urgent</button>
-        <button [ngClass]="{ yellow: isDays() }"  (click)="setDays()">Days</button>
-        <button [ngClass]="{ green: isWeeks() }"  (click)="setWeeks()">Weeks</button>
+        <button class="dueButtonMargins" 
+                [ngClass]="{ red: isUrgent() }"  
+                (click)="setUrgent()">Urgent</button>
+        <button class="dueButtonMargins" 
+                [ngClass]="{ yellow: isDays() }"  
+                (click)="setDays()">Days</button>
+        <button class="dueButtonMargins" 
+                [ngClass]="{ green: isWeeks() }"  
+                (click)="setWeeks()">Weeks</button>
     </div>
     <div> 
-        <button (click)="remove()">Remove Task</button>
+        <button class="removeButtonMargins" (click)="remove()">Remove Task</button>
     </div>
+    <hr class="todoItemLine">
 </div>

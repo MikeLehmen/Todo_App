@@ -9,3 +9,19 @@
 .green {
     background-color: limegreen;
 }
+
+.todoItemLine {
+    text-align: left;
+    margin-left: 0;
+    width: 350px;
+}
+
+.dueButtonMargins {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.removeButtonMargins {
+    margin-left: 40px;
+    margin-top: 5px;
+}

@@ -6,7 +6,7 @@ import { TodoListService } from '../todo-service/todo-service.service';
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
-  styleUrls: ['./todo-item.component.css']
+  styleUrls: ['./todo-item.component.css', '../app.component.css']
 })
 export class TodoItemComponent implements OnInit, OnChanges {
   @Input() item: TodoItem;
@@ -23,7 +23,6 @@ export class TodoItemComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     this.item.currentIndex = this.index;
-    console.log(this.item.task + " --> " + this.item.currentIndex);
   }
 
   private dateToString(): string {

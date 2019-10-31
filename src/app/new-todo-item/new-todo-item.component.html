@@ -1,20 +1,28 @@
 <div>
+    <h2>Todo List Dashboard</h2>
     <form #f="ngForm" 
         (ngSubmit)="onSubmit(f.value)">
     
-        <div>
-            <label for="taskInput">Enter New Task:</label>
-            <input type="text"
-                    id="taskInput"
-                    placeholder="New Task"
-                    name="task" ngModel>
+        <div class="leftMargin">
+            <div class="bottomMargin">
+                <label class="padLabelRight" for="taskInput">Enter New Task:</label>
+                <input type="text"
+                id="taskInput"
+                placeholder="New Task"
+                name="task" ngModel>
+            </div>
 
-            <select name="due" ngModel="strings">
-                <option *ngFor="let s of times;let i=index" [value]="i">{{strings[i]}}</option>
-            </select>
+            <div class="bottomMargin">
+                <label class="padLabelRight" for="dueInput">Select Due Date:</label>
+                <select id="dueInput" name="due" ngModel="strings">
+                    <option *ngFor="let s of times;let i=index" [value]="i">{{strings[i]}}</option>
+                </select>
+            </div>
 
             <button type="submit">Add Task</button>
         </div>
     
     </form>
+
+    <hr class="lineLeftAlign">
 </div>
